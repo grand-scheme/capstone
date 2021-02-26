@@ -1,3 +1,5 @@
 ~9am: troubleshoot create-react-app, install latest version
 
-10:11: Search up some diagramming tools for overall project layout; trying out proto.io
+10:11: Search up some diagramming tools for overall project layout; trying out proto.io, hotgloo, fluid.io...
+
+11:05: Gave up on most of these; their exceedingly modern canvas design is as slow as cow-drawn train car. No thank you. 
