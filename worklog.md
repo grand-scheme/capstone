@@ -9,3 +9,6 @@
 12:30: Correction, _now_ the home and registration are finished.
 
 2:06: Just coming back after stepping away for ~20 minutes due to FIRE ALARM. Still working on 'Restaurant' landing page design.
+
+2:42: Thought, "I'm going to need the user to be able to type in a restaurant name, but auto-complete if it's one they've been to before. How does that work?"
+Found [JS tutorial](https://www.w3schools.com/howto/howto_js_autocomplete.asp).
