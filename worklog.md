@@ -7,3 +7,5 @@
 12:02: designing Site Views/Screens. Finished skeleton of Home and Registration. 
 
 12:30: Correction, _now_ the home and registration are finished.
+
+2:06: Just coming back after stepping away for ~20 minutes due to FIRE ALARM. Still working on 'Restaurant' landing page design.
