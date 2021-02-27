@@ -14,3 +14,6 @@
 Found [JS tutorial](https://www.w3schools.com/howto/howto_js_autocomplete.asp).
 
 3:30: Working on "Add New" view diagram; looking up how to make a hexagonal shape in js. (Maybe 'how to put an element every 60° around a circle' ?)
+Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
+
+4:20: Found tutorial for circle icons... nice. [Thanks SOF](https://stackoverflow.com/questions/12813573/position-icons-into-circle).
