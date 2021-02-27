@@ -17,3 +17,7 @@ Found [JS tutorial](https://www.w3schools.com/howto/howto_js_autocomplete.asp).
 Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 
 4:20: Found tutorial for circle icons... nice. [Thanks SOF](https://stackoverflow.com/questions/12813573/position-icons-into-circle).
+
+4:45: Still chipping away at visual for 'add new review'.
+
+5:14: Actually push that commit.
