@@ -1,3 +1,4 @@
+2/26: \
 ~9am: troubleshoot create-react-app, install latest version
 
 10:11: Search up some diagramming tools for overall project layout; trying out proto.io, hotgloo, fluid.io...
@@ -21,3 +22,8 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 4:45: Still chipping away at visual for 'add new review'.
 
 5:14: Actually push that commit.
+
+------
+
+2/28: \
+8:41: Remember that this project needs to include other documentation; add capstone-proposal.md
