@@ -87,11 +87,24 @@ In this case, "restaurant" would instead be brand, dish the specific product, an
 
 ---
 ## The Instructor Response: ##
-<details open><summary>[ click to toggle visibility ] </summary>
+<details><summary>[ click to toggle visibility ] </summary>
 <blockquote><p> Hey! I do believe it is hard to come up with a punny title that hasn't been used before. I believe in you!! </p>
 
 <p>This is a great proposal. It's detailed and has a lot of stretch goals. I could see writing a backend in NoSQL or SQL. I think using firestore will reinforce the tooling (fresh in your mind) that you've learned in this recent module and that it will make an excellent project to add to you resume. That said, you are absolutely welcome to pick any NoSQL database of your choice, just keep in mind that there is a learning curve and each technology has their own way of interacting with the database (in contrast to SQL databases which all use Structured Query Language).</p>
 <p>I don't suggest working with React Native (for mobile applications) unless that is the core of your MVP and you pare down some of the items that you have currently listed for your MVP. As always, a small MVP with many stretch goals is a good way to tackle your capstone project.</p>
 <p>Well done with this proposal!</p></blockquote></details>
+
+---
+## User Feedback: ##
+<details><summary>[ click to toggle visibility ] </summary>
+
+<blockquote><b>[ User 'J' about project proposal ]</b>: 
+<p>[This] is something I would use. I only use [<em>redacted: website name</em>] reviews if something was egregiously bad, or like there's a promotion to leave a good review.</p>
+
+<p>I think a notes app like this is really handy!  It means I can have something that like... I can personally record the things I like about something, without the public pressure too.</p>
+
+<p>Like "the servers weren't paying attention to me" is fine in a personal note but I'd never put it public, [but] it's something I'd like to remember!!</p>
+
+</details>
 
 ---
