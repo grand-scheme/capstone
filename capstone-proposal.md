@@ -1,5 +1,4 @@
 # **Capstone Proposal**
-## **The Summary:**
 ## **The Initial Short-Form Write-Up:** 
 
 **Brief Description:**\
