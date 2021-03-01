@@ -11,4 +11,6 @@ The non-standard rating system and lack of worldwide publication will encourage 
 \
 The ability to allow a user to add multiple reviews to a single restaurant will allow them to keep track of what items they have tried and enjoyed, whether one location is better than another, or keep track of which serving staff members deserve to be avoided.\
 \
-To view full project proposal, specs, and current feedback, please view the [full proposal document](capstone-proposal.md).
+To view full project proposal, specs, and current feedback, please view the [full proposal document](capstone-proposal.md).\
+\
+To view current visual diagrams, please see [this folder](diagrams\).
