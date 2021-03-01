@@ -27,3 +27,5 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 
 2/28: \
 8:41: Remember that this project needs to include other documentation; add capstone-proposal.md
+
+8:55: Add capstone letter, clean up spelling errors and some formatting.
