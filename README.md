@@ -13,4 +13,4 @@ The ability to allow a user to add multiple reviews to a single restaurant will 
 \
 To view full project proposal, specs, and current feedback, please view the [full proposal document](capstone-proposal.md).\
 \
-To view current visual diagrams, please see [this folder](diagrams\).
+To view current visual diagrams, please see [this folder](diagrams/).
