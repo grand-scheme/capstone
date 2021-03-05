@@ -11,9 +11,18 @@ class ReviewControl extends React.Component {
     };
   }
   render(){
+    // NOTE: LET STATEMENTS
+    let currentlyVisible = null;
+
+    // NOTE: IF CONDITIONALS
+    if (this.state.visibleNewReview) {
+      currentlyVisible = <NewReview />
+    } else {
+      currentlyVisible = <ReviewList />
+    }
     return(
       <>
-        ¯\_(ツ)_/¯
+        {currentlyVisible}
       </>
     );
   }
