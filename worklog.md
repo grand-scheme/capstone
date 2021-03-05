@@ -44,3 +44,5 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 10:20: Diagram view for "delete (selected) entries"
 
 10:45: Diagram view for view/edit (read/update)
+
+11:10: Review diagram.
