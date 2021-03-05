@@ -4,6 +4,7 @@ import ReviewList from './ReviewList';
 function App() {
   return (
     <>
+      <ReviewList />
     </>
   );
 }
