@@ -13,16 +13,19 @@ class ReviewControl extends React.Component {
   render(){
     // NOTE: LET STATEMENTS
     let currentlyVisible = null;
+    let buttonNewReview = null;
 
     // NOTE: IF CONDITIONALS
     if (this.state.visibleNewReview) {
       currentlyVisible = <NewReview />
     } else {
       currentlyVisible = <ReviewList />
+      buttonNewReview = <button onClick={this.handleClick}>new review button</button>
     }
     return(
       <>
         {currentlyVisible}
+        {buttonNewReview}
       </>
     );
   }
