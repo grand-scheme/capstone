@@ -5,7 +5,10 @@ import ReviewList from './ReviewList';
 class ReviewControl extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      // NOTE: TOGGLE FLAGS
+      visibleNewReview: false
+    };
   }
   render(){
     return(
