@@ -31,3 +31,8 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 8:55: Add capstone letter, clean up spelling errors and some formatting.
 
 9:38: ''
+
+------
+
+3/5: \
+8:09: Get started. Focus on finishing diagrams by 11am.
