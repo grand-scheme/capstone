@@ -1,10 +1,10 @@
 import React from 'react';
-import ReviewList from './ReviewList';
+import ReviewControl from './ReviewControl';
 
 function App() {
   return (
     <>
-      <ReviewList />
+      <ReviewControl />
     </>
   );
 }
