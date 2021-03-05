@@ -46,3 +46,12 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 10:45: Diagram view for view/edit (read/update)
 
 11:10: Review diagram.
+
+//
+
+12:06: Detour on the question "what proptype is an emoji??".
+[referencing](https://thekevinscott.com/emojis-in-javascript/)
+[1](https://www.tiny.cloud/blog/emoji-picker/)
+[2](https://www.cssscript.com/tag/emoji-picker/)
+[3](https://www.jqueryscript.net/blog/best-emoji-picker.html)
+[4](https://techlady.haus/blog/2017/11/9/three-fun-ways-to-use-emoji-in-your-code)
