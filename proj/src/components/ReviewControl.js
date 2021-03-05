@@ -10,22 +10,31 @@ class ReviewControl extends React.Component {
       visibleNewReview: false
     };
   }
+
+  // NOTE: HANDLE METHODS
+  handleClick = () => {
+    this.setState(prevState => ({
+      visibleNewReview: !prevState.visibleNewReview
+    }));
+  }
+
   render(){
     // NOTE: LET STATEMENTS
     let currentlyVisible = null;
-    let buttonNewReview = null;
+    let buttonText = '';
 
     // NOTE: IF CONDITIONALS
     if (this.state.visibleNewReview) {
       currentlyVisible = <NewReview />
+      buttonText = 'cancel'
     } else {
       currentlyVisible = <ReviewList />
-      buttonNewReview = <button onClick={this.handleClick}>new review button</button>
+      buttonText = 'new review button'
     }
     return(
       <>
         {currentlyVisible}
-        {buttonNewReview}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </>
     );
   }
