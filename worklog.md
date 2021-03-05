@@ -55,3 +55,7 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 [2](https://www.cssscript.com/tag/emoji-picker/)
 [3](https://www.jqueryscript.net/blog/best-emoji-picker.html)
 [4](https://techlady.haus/blog/2017/11/9/three-fun-ways-to-use-emoji-in-your-code)
+
+//
+
+1:30: return from lunch
