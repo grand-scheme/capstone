@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Review(props){
   // const restaurantName = "Goldie's";
@@ -21,5 +22,15 @@ function Review(props){
   </>
   )
 }
+
+Review.propTypes = {
+  restaurantName: PropTypes.string,
+  address: PropTypes.string,
+  location: PropTypes.string,
+  rating: PropTypes.string,
+  date: PropTypes.string,
+  review: PropTypes.string
+  // add .isRequired to the ones that will be required
+};
 
 export default Review;
