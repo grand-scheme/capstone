@@ -40,3 +40,5 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 9:08: Add additional views for... viewing lists. 
 
 9:51: Diagram view for "view all entries attached to \[x\]"
+
+10:20: Diagram view for "delete (selected) entries"
