@@ -7,7 +7,8 @@ class ReviewControl extends React.Component {
     super(props);
     this.state = {
       // NOTE: TOGGLE FLAGS
-      visibleNewReview: false
+      visibleNewReview: false,
+      tempReviewList: []
     };
   }
 
@@ -28,7 +29,7 @@ class ReviewControl extends React.Component {
       currentlyVisible = <NewReview />
       buttonText = 'cancel'
     } else {
-      currentlyVisible = <ReviewList />
+      currentlyVisible = <ReviewList reviewList={this.state.tempReviewList} />
       buttonText = 'new review button'
     }
     return(
