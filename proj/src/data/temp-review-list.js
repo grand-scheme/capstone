@@ -5,7 +5,8 @@ const tempReviewList = [
     location: 'Seattle, WA',
     rating: '😭',
     date: '3/5/2021',
-    review: "They ran out of pie..."
+    review: "They ran out of pie...",
+    id: '1'
   },
   {
     restaurantName: "Bernie's",
@@ -13,7 +14,8 @@ const tempReviewList = [
     location: 'Seattle, WA',
     rating: '🙁',
     date: '3/2/2021',
-    review: "Not great."
+    review: "Not great.",
+    id:'2'
   },
   {
     restaurantName: "Clyde's",
@@ -21,7 +23,8 @@ const tempReviewList = [
     location: 'Portland, OR',
     rating: '🥰',
     date: '2/14/2021',
-    review: "Free dessert"
+    review: "Free dessert",
+    id:'3'
   }
 ];
 
