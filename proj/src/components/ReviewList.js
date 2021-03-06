@@ -13,7 +13,7 @@ function ReviewList(props){
           location={review.location}
           rating={review.rating}
           date={review.date}
-          review={review.review}
+          review={review.review.length > 100 ? review.review.substr(0,100) + "..." : review.review }
           id={review.id}
           key={review.id}
         />
