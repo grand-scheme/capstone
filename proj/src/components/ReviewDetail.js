@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ReviewDetail(props){
-  const { review } = props;
+  const { review, onDeleteReview } = props;
 
   return(
     <>
@@ -12,11 +12,13 @@ function ReviewDetail(props){
       {review.rating} <br />
       {review.date} <br />
       {review.review} <br />
+      <button onClick={()=> onDeleteReview(review.id)}>Delete</button>
     </>
   );
 }
 
 ReviewDetail.propTypes ={
-  review: PropTypes.object
+  review: PropTypes.object,
+  onDeleteReview: PropTypes.func
 };
 export default ReviewDetail;
