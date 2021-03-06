@@ -22,6 +22,12 @@ class ReviewControl extends React.Component {
     }));
   }
 
+  handleReturn = () => {
+    this.setState({
+      selectedReview: null
+    });
+  }
+
   handleNewReview = (newReview) => {
     const newTempReviewList = this.state.tempReviewList.concat(newReview);
     this.setState({
@@ -39,26 +45,30 @@ class ReviewControl extends React.Component {
     // NOTE: LET STATEMENTS
     let currentlyVisible = null;
     let buttonText = '';
+    let handleButton = null;
 
     // NOTE: IF CONDITIONALS
     if (this.state.selectedReview != null) {
       currentlyVisible = <ReviewDetail review = {this.state.selectedReview} />
       buttonText = 'back'
+      handleButton = this.handleReturn
     } else if (this.state.visibleNewReview) {
       currentlyVisible = <NewReview 
         onNewReview={this.handleNewReview} />
       buttonText = 'cancel'
+      handleButton = this.handleClick
     } else {
       currentlyVisible = <ReviewList 
         reviewList={this.state.tempReviewList} 
         onSelectReview={this.handleSelectReview}
       />
       buttonText = 'new review button'
+      handleButton = this.handleClick
     }
     return(
       <>
         {currentlyVisible}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <button onClick={handleButton}>{buttonText}</button>
       </>
     );
   }
