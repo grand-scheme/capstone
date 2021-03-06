@@ -16,13 +16,13 @@ class ReviewControl extends React.Component {
   }
 
   // NOTE: HANDLE METHODS
-  handleClick = () => {
+  handleCreateNew = () => {
     this.setState(prevState => ({
       visibleNewReview: !prevState.visibleNewReview
     }));
   }
 
-  handleReturn = () => {
+  handleReturnToList = () => {
     this.setState({
       selectedReview: null
     });
@@ -51,19 +51,19 @@ class ReviewControl extends React.Component {
     if (this.state.selectedReview != null) {
       currentlyVisible = <ReviewDetail review = {this.state.selectedReview} />
       buttonText = 'back'
-      handleButton = this.handleReturn
+      handleButton = this.handleReturnToList
     } else if (this.state.visibleNewReview) {
       currentlyVisible = <NewReview 
         onNewReview={this.handleNewReview} />
       buttonText = 'cancel'
-      handleButton = this.handleClick
+      handleButton = this.handleCreateNew
     } else {
       currentlyVisible = <ReviewList 
         reviewList={this.state.tempReviewList} 
         onSelectReview={this.handleSelectReview}
       />
       buttonText = 'new review button'
-      handleButton = this.handleClick
+      handleButton = this.handleCreateNew
     }
     return(
       <>
