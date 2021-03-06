@@ -9,7 +9,8 @@ class ReviewControl extends React.Component {
     this.state = {
       // NOTE: TOGGLE FLAGS
       visibleNewReview: false,
-      tempReviewList: tempReviewList
+      tempReviewList: tempReviewList,
+      selectedReview: null
     };
   }
 
