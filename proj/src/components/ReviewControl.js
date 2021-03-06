@@ -20,6 +20,14 @@ class ReviewControl extends React.Component {
     }));
   }
 
+  handleNewReview = (newReview) => {
+    const newTempReviewList = this.state.tempReviewList.concat(newReview);
+    this.setState({
+      tempReviewList: newTempReviewList, 
+      visibleNewReview: false
+    });
+  }
+
   render(){
     // NOTE: LET STATEMENTS
     let currentlyVisible = null;
@@ -27,7 +35,7 @@ class ReviewControl extends React.Component {
 
     // NOTE: IF CONDITIONALS
     if (this.state.visibleNewReview) {
-      currentlyVisible = <NewReview />
+      currentlyVisible = <NewReview onNewReview={this.handleNewReview} />
       buttonText = 'cancel'
     } else {
       currentlyVisible = <ReviewList reviewList={this.state.tempReviewList} />
