@@ -41,6 +41,14 @@ class ReviewControl extends React.Component {
     this.setState({selectedReview: selectedReview});
   }
 
+  handleDeleteReview = (id) => {
+    const newTempReviewList = this.state.tempReviewList.filter(review => review.id !== id);
+    this.setState({
+      tempReviewList: newTempReviewList,
+      selectedReview: null
+    });
+  }
+
   render(){
     // NOTE: LET STATEMENTS
     let currentlyVisible = null;
@@ -49,15 +57,23 @@ class ReviewControl extends React.Component {
 
     // NOTE: IF CONDITIONALS
     if (this.state.selectedReview != null) {
-      currentlyVisible = <ReviewDetail review = {this.state.selectedReview} />
+      // SELECTS A 'REVIEW' TO GO TO DETAILS SCREEN
+      currentlyVisible = <ReviewDetail 
+        review = {this.state.selectedReview} 
+        onDeleteReview = {this.handleDeleteReview}
+      />
       buttonText = 'back'
       handleButton = this.handleReturnToList
+
     } else if (this.state.visibleNewReview) {
+      // NAVIGATES AWAY FROM THE 'NEW REVIEW' SCREEN
       currentlyVisible = <NewReview 
         onNewReview={this.handleNewReview} />
       buttonText = 'cancel'
       handleButton = this.handleCreateNew
+
     } else {
+      // NAVIGATES TO THE 'NEW REVIEW' SCREEN
       currentlyVisible = <ReviewList 
         reviewList={this.state.tempReviewList} 
         onSelectReview={this.handleSelectReview}
