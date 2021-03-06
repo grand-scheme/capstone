@@ -1,12 +1,11 @@
 import React from 'react';
 import Review from './Review';
-import tempReviewList from '../data/temp-review-list'
+import PropTypes from 'prop-types';
 
-let list = tempReviewList
-function ReviewList(){
+function ReviewList(props){
   return (
     <>
-      {list.map((review, index) =>
+      {props.reviewList.map((review, index) =>
         <Review 
           restaurantName={review.restaurantName}
           address={review.address}
@@ -21,4 +20,7 @@ function ReviewList(){
   );
 }
 
+ReviewList.propTypes = {
+  reviewList: PropTypes.array
+};
 export default ReviewList;

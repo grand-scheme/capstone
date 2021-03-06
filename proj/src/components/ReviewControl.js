@@ -1,6 +1,7 @@
 import React from 'react';
 import NewReview from './NewReview';
 import ReviewList from './ReviewList';
+import tempReviewList from '../data/temp-review-list'
 
 class ReviewControl extends React.Component {
   constructor(props){
@@ -8,7 +9,7 @@ class ReviewControl extends React.Component {
     this.state = {
       // NOTE: TOGGLE FLAGS
       visibleNewReview: false,
-      tempReviewList: []
+      tempReviewList: tempReviewList
     };
   }
 
