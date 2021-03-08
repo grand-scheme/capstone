@@ -34,7 +34,8 @@ class ReviewControl extends React.Component {
 
   handleReturnToList = () => {
     this.setState({
-      selectedReview: null
+      selectedReview: null,
+      visibleEditReview: false
     });
   }
 
@@ -86,7 +87,8 @@ class ReviewControl extends React.Component {
         review = {this.state.selectedReview}
         onEditReview = {this.handleEditConfirmation}
         />
-      buttonText = 'Back';
+      buttonText = 'Back'
+      handleButton = this.handleReturnToList
     } else if (this.state.selectedReview != null) {
       // SELECTS A 'REVIEW' TO GO TO DETAILS SCREEN
       currentlyVisible = <ReviewDetail 
