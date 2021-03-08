@@ -24,6 +24,11 @@ function ReviewEdit(props){
         buttonText='Edit Review'
         formHandler={handleEditConfirmation}
         restaurantName={review.restaurantName}
+        address={review.address}
+        location={review.location}
+        rating={review.rating}
+        date={review.date}
+        review={review.review}
       />
     </>
   );
