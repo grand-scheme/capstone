@@ -23,6 +23,7 @@ function ReviewEdit(props){
       <Form 
         buttonText='Edit Review'
         formHandler={handleEditConfirmation}
+        restaurantName={review.restaurantName}
       />
     </>
   );

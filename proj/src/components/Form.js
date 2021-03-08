@@ -9,7 +9,7 @@ function Form(props){
         <input 
           type='text'
           name='restaurantName'
-          placeholder='Restaurant'
+          placeholder={props.restaurantName}
         />
         <input 
           type='text'
@@ -43,6 +43,7 @@ function Form(props){
 
 Form.propTypes = {
   formHandler: PropTypes.func,
-  buttonText: PropTypes.string
+  buttonText: PropTypes.string,
+  restaurantName: PropTypes.string
 }
 export default Form;
