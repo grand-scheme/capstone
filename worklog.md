@@ -59,3 +59,9 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 //
 
 1:30: return from lunch
+
+------
+
+3/8
+
+1:20: return from lunch. research WatermelonDB.
