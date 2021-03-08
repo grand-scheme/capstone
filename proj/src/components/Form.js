@@ -14,26 +14,26 @@ function Form(props){
         <input 
           type='text'
           name='address'
-          placeholder='Address'
+          placeholder={props.address}
         />
         <input 
           type='text'
           name='location'
-          placeholder='City, State'
+          placeholder={props.location}
         />
         <input 
           type='text'
           name='rating'
-          placeholder='Rating'
+          placeholder={props.rating}
         />
         <input 
           type='text'
           name='date'
-          placeholder='Date'
+          placeholder={props.date}
         />
         <textarea 
           name='review'
-          placeholder='Write your review here.'
+          placeholder={props.review}
         />
         <button type='submit'>{props.buttonText}</button>
       </form>
@@ -44,6 +44,11 @@ function Form(props){
 Form.propTypes = {
   formHandler: PropTypes.func,
   buttonText: PropTypes.string,
-  restaurantName: PropTypes.string
+  restaurantName: PropTypes.string,
+  address: PropTypes.string,
+  location: PropTypes.string,
+  rating: PropTypes.string,
+  date: PropTypes.string,
+  review: PropTypes.string
 }
 export default Form;
