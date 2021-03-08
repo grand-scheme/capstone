@@ -3,6 +3,7 @@ import NewReview from './NewReview';
 import ReviewList from './ReviewList';
 import tempReviewList from '../data/temp-review-list'
 import ReviewDetail from './ReviewDetail';
+import ReviewEdit from './ReviewEdit';
 
 class ReviewControl extends React.Component {
   constructor(props){
@@ -11,15 +12,24 @@ class ReviewControl extends React.Component {
       // NOTE: TOGGLE FLAGS
       visibleNewReview: false,
       tempReviewList: tempReviewList,
-      selectedReview: null
+      selectedReview: null,
+      visibleEditReview: false
     };
   }
 
   // NOTE: HANDLE METHODS
   handleCreateNew = () => {
-    this.setState(prevState => ({
-      visibleNewReview: !prevState.visibleNewReview
-    }));
+    if (this.state.selectedReview != null) {
+      this.setState({
+        visibleNewReview: false,
+        visibleEditReview: false,
+        selectedReview: null
+      });
+    } else { 
+      this.setState(prevState => ({
+        visibleNewReview: !prevState.visibleNewReview
+      }));
+    }
   }
 
   handleReturnToList = () => {
@@ -41,6 +51,21 @@ class ReviewControl extends React.Component {
     this.setState({selectedReview: selectedReview});
   }
 
+  handleEditReview = () => {
+    this.setState({visibleEditReview: true});
+  }
+
+  handleEditConfirmation = (review) => {
+    const newTempReviewList = this.state.tempReviewList.filter(
+      review => review.id !== this.state.selectedReview.id)
+      .concat(review);
+    this.setState({
+      tempReviewList: newTempReviewList,
+      visibleEditReview: false,
+      selectedReview: null
+    });
+  }
+
   handleDeleteReview = (id) => {
     const newTempReviewList = this.state.tempReviewList.filter(review => review.id !== id);
     this.setState({
@@ -56,11 +81,18 @@ class ReviewControl extends React.Component {
     let handleButton = null;
 
     // NOTE: IF CONDITIONALS
-    if (this.state.selectedReview != null) {
+    if (this.state.visibleEditReview) {
+      currentlyVisible = <ReviewEdit 
+        review = {this.state.selectedReview}
+        onEditReview = {this.handleEditConfirmation}
+        />
+      buttonText = 'Back';
+    } else if (this.state.selectedReview != null) {
       // SELECTS A 'REVIEW' TO GO TO DETAILS SCREEN
       currentlyVisible = <ReviewDetail 
         review = {this.state.selectedReview} 
         onDeleteReview = {this.handleDeleteReview}
+        onEditReview = {this.handleEditReview}
       />
       buttonText = 'back'
       handleButton = this.handleReturnToList
