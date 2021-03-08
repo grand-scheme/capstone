@@ -65,3 +65,5 @@ Reference to look at later: [red blob shapes](https://www.redblobgames.com/)
 3/8
 
 1:20: return from lunch. research WatermelonDB.
+
+2:11: accidentally start building database on the wrong branch. revert to previous state to try that again.
