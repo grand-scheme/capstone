@@ -23,6 +23,10 @@ export default (state={}, action) => {
           id,
         }
       });
+    case c.DELETE_REVIEW:
+      let newState = {...state};
+      delete newState[id];
+      return newState;
   default: 
     return state;
   }
