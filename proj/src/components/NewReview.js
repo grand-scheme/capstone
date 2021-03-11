@@ -24,13 +24,13 @@ function NewReview(props){
     <>
       <Form 
         formHandler={addReviewToFirestore}
-        buttonText="Save"
-        restaurantName="Restaurant Name"
-        address="Street Address / Intersection"
-        location="City, State"
-        rating="🙂?"
-        date="Date"
-        review="Write your review here."
+        buttonText='Save'
+        restaurantName='Restaurant Name'
+        address='Street Address / Intersection'
+        location='City, State'
+        rating='🙂?'
+        date='Date'
+        review='Write your review here.'
       />
     </>
   );

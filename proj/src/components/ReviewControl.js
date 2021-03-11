@@ -41,12 +41,12 @@ class ReviewControl extends React.Component {
   handleSelectReview = (id) => {
     this.props.firestore.get({collection: 'reviews', doc: id}).then((review) => {
       const firestoreReview = {
-        restaurantName: review.get("restaurantName"),
-        address: review.get("address"),
-        location: review.get("location"),
-        rating: review.get("rating"),
-        date: review.get("date"),
-        review: review.get("review"),
+        restaurantName: review.get('restaurantName'),
+        address: review.get('address'),
+        location: review.get('location'),
+        rating: review.get('rating'),
+        date: review.get('date'),
+        review: review.get('review'),
         id: review.id
       }
       this.setState({selectedReview: firestoreReview});
