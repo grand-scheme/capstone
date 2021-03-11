@@ -4,7 +4,6 @@ import ReviewList from './ReviewList';
 import ReviewDetail from './ReviewDetail';
 import ReviewEdit from './ReviewEdit';
 import { connect } from 'react-redux';
-import * as c from '../actions/ActionTypes';
 import * as a from '../actions/';
 import PropTypes from 'prop-types';
 
@@ -19,7 +18,7 @@ class ReviewControl extends React.Component {
   }
 
   // NOTE: HANDLE METHODS
-  handleCreateNew = () => {
+  handleClick = () => {
     if (this.state.selectedReview != null) {
       this.setState({
         visibleEditReview: false,
@@ -121,7 +120,7 @@ class ReviewControl extends React.Component {
       currentlyVisible = <NewReview 
         onNewReview={this.handleNewReview} />
       buttonText = 'cancel'
-      handleButton = this.handleCreateNew
+      handleButton = this.handleClick
 
     } else {
       // NAVIGATES TO THE 'NEW REVIEW' SCREEN
@@ -130,7 +129,7 @@ class ReviewControl extends React.Component {
         onSelectReview={this.handleSelectReview}
       />
       buttonText = 'new review button'
-      handleButton = this.handleCreateNew
+      handleButton = this.handleClick
     }
     return(
       <>
