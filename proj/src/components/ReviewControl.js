@@ -5,6 +5,7 @@ import ReviewDetail from './ReviewDetail';
 import ReviewEdit from './ReviewEdit';
 import { connect } from 'react-redux';
 import * as c from '../actions/ActionTypes';
+import * as a from '../actions/';
 import PropTypes from 'prop-types';
 
 class ReviewControl extends React.Component {
@@ -26,9 +27,7 @@ class ReviewControl extends React.Component {
       });
     } else { 
       const { dispatch } = this.props; 
-      const action = {
-        type: c.TOGGLE_NEW
-      }
+      const action = a.toggleNew();
       dispatch(action);
     }
   }
@@ -50,20 +49,9 @@ class ReviewControl extends React.Component {
       review,
       id,
     } = newReview;
-    const action = {
-      type: c.ADD_REVIEW,
-      restaurantName,
-      address,
-      location,
-      rating,
-      date,
-      review,
-      id,
-    }
+    const action = addReview();
     dispatch(action);
-    const action2 = {
-      type: c.TOGGLE_NEW
-    }
+    const action2 = a.toggleNew();
     dispatch(action2);
   }
 
@@ -87,16 +75,7 @@ class ReviewControl extends React.Component {
       review,
       id,
     } = editReview;
-    const action = {
-      type: c.ADD_REVIEW,
-      restaurantName,
-      address,
-      location,
-      rating,
-      date,
-      review,
-      id,
-    }
+    const action = addReview();
     dispatch(action);
     this.setState({
       visibleEditReview: false,
@@ -106,10 +85,7 @@ class ReviewControl extends React.Component {
 
   handleDeleteReview = (id) => {
     const { dispatch } = this.props; 
-    const action = {
-      type: c.DELETE_REVIEW,
-      id
-    }
+    const action = a.deleteReview(id);
     dispatch(action)
     this.setState({
       selectedReview: null
