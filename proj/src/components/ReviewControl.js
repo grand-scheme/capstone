@@ -6,7 +6,7 @@ import ReviewEdit from './ReviewEdit';
 import { connect } from 'react-redux';
 import * as a from '../actions/';
 import PropTypes from 'prop-types';
-import { withFirestore } from 'react-redux-firebase'
+import { withFirestore, isLoaded } from 'react-redux-firebase'
 
 class ReviewControl extends React.Component {
   constructor(props){
@@ -72,44 +72,62 @@ class ReviewControl extends React.Component {
   }
 
   render(){
-    // NOTE: LET STATEMENTS
-    let currentlyVisible = null;
-    let buttonText = '';
-
-    // NOTE: IF CONDITIONALS
-    if (this.state.visibleEditReview) {
-      currentlyVisible = <ReviewEdit 
-        review = {this.state.selectedReview}
-        onEditReview = {this.handleEditConfirmation}
-        />
-      buttonText = 'Back'
-    } else if (this.state.selectedReview != null) {
-      // SELECTS A 'REVIEW' TO GO TO DETAILS SCREEN
-      currentlyVisible = <ReviewDetail 
-        review = {this.state.selectedReview} 
-        onDeleteReview = {this.handleDeleteReview}
-        onEditReview = {this.handleEditReview}
-      />
-      buttonText = 'back'
-
-    } else if (this.props.visibleNewReview) {
-      // NAVIGATES AWAY FROM THE 'NEW REVIEW' SCREEN
-      currentlyVisible = <NewReview 
-        onNewReview={this.handleNewReview} />
-      buttonText = 'cancel'
-    } else {
-      // NAVIGATES TO THE 'NEW REVIEW' SCREEN
-      currentlyVisible = <ReviewList 
-        onSelectReview={this.handleSelectReview}
-      />
-      buttonText = 'new review button'
+    // NOTE: OTHER CONDITIONALS
+    const auth = this.props.firebase.auth();
+    if (!isLoaded(auth)) {
+      return (
+        <>
+          Loading...
+        </>
+      )
     }
-    return(
-      <>
-        {currentlyVisible}
-        <button onClick={this.handleClick}>{buttonText}</button>
-      </>
-    );
+    if ((isLoaded(auth)) && (auth.currentUser == null)) {
+      return (
+        <>
+          Please Log In or Register
+        </>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser != null)) {
+      // NOTE: LET STATEMENTS
+      let currentlyVisible = null;
+      let buttonText = '';
+
+      // NOTE: IF CONDITIONALS
+      if (this.state.visibleEditReview) {
+        currentlyVisible = <ReviewEdit 
+          review = {this.state.selectedReview}
+          onEditReview = {this.handleEditConfirmation}
+          />
+        buttonText = 'Back'
+      } else if (this.state.selectedReview != null) {
+        // SELECTS A 'REVIEW' TO GO TO DETAILS SCREEN
+        currentlyVisible = <ReviewDetail 
+          review = {this.state.selectedReview} 
+          onDeleteReview = {this.handleDeleteReview}
+          onEditReview = {this.handleEditReview}
+        />
+        buttonText = 'back'
+
+      } else if (this.props.visibleNewReview) {
+        // NAVIGATES AWAY FROM THE 'NEW REVIEW' SCREEN
+        currentlyVisible = <NewReview 
+          onNewReview={this.handleNewReview} />
+        buttonText = 'cancel'
+      } else {
+        // NAVIGATES TO THE 'NEW REVIEW' SCREEN
+        currentlyVisible = <ReviewList 
+          onSelectReview={this.handleSelectReview}
+        />
+        buttonText = 'new review button'
+      }
+      return(
+        <>
+          {currentlyVisible}
+          <button onClick={this.handleClick}>{buttonText}</button>
+        </>
+      );
+    }
   }
 }
 
