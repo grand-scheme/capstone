@@ -1,16 +1,23 @@
 import React from 'react';
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignIn(){
+  const history = useHistory();
+
   function register(e){
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     firebase.auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(function(){
-        console.log('nice');
-    }).catch(function(error) {
+      .then(function()
+      {
+        history.push('/');
+        history.push('/signin');
+      }
+    ).catch(function(error) {
         alert(error.message);
         console.log('less nice');
     });
@@ -23,28 +30,19 @@ function SignIn(){
     firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(function(){
-        console.log('nice');
+        history.push('/');
       })
       .catch(function(error) {
         alert(error.message);
         console.log('less nice');
     });
   }
-
-  function signout(e){
-    firebase.auth()
-      .signOut()
-      .then(function() {
-        console.log('nice');
-      })
-      .catch(function(error) {
-        alert(error.message);
-        console.log('less nice');
-      });
-  }
+  
 
   return(
-    <>
+    <Router>
+      <Switch>
+        <Route path='/register'>
       <p>Register</p>
       <form onSubmit={register}>
         <input 
@@ -57,7 +55,12 @@ function SignIn(){
           placeholder='password' />
         <button type='submit'>Register</button>
       </form>
+      <p>Already have an account? Then please <Link to='/signin'>Sign In</Link></p>
+      </Route>
+      </Switch>
 
+      <Switch>
+        <Route path='/signin'>
       <p>Sign In</p>
       <form onSubmit={login}>
         <input 
@@ -70,10 +73,9 @@ function SignIn(){
           placeholder='password' />
         <button type='submit'>Log in</button>
       </form>
-
-      <p>Log Out</p>
-      <button onClick={signout}>Log out</button>
-    </>
+      <p>No account? Then please <Link to='/register'>Register for one.</Link></p>
+      </Route></Switch>
+    </Router>
   );
 }
 
