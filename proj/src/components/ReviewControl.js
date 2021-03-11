@@ -1,11 +1,9 @@
 import React from 'react';
 import NewReview from './NewReview';
 import ReviewList from './ReviewList';
-// import tempReviewList from '../data/temp-review-list'
 import ReviewDetail from './ReviewDetail';
 import ReviewEdit from './ReviewEdit';
 import { connect } from 'react-redux';
-import Review from './Review';
 import * as c from '../actions/ActionTypes';
 import PropTypes from 'prop-types';
 
@@ -14,7 +12,6 @@ class ReviewControl extends React.Component {
     super(props);
     this.state = {
       // NOTE: TOGGLE FLAGS
-      visibleNewReview: false,
       selectedReview: null,
       visibleEditReview: false
     };
@@ -24,21 +21,21 @@ class ReviewControl extends React.Component {
   handleCreateNew = () => {
     if (this.state.selectedReview != null) {
       this.setState({
-        visibleNewReview: false,
         visibleEditReview: false,
         selectedReview: null
       });
     } else { 
-      this.setState(prevState => ({
-        visibleNewReview: !prevState.visibleNewReview
-      }));
+      const { dispatch } = this.props; 
+      const action = {
+        type: c.TOGGLE_NEW
+      }
+      dispatch(action);
     }
   }
 
   handleReturnToList = () => {
     this.setState({
       selectedReview: null,
-      visibleEditReview: false
     });
   }
 
@@ -64,9 +61,10 @@ class ReviewControl extends React.Component {
       id,
     }
     dispatch(action);
-    this.setState({
-      visibleNewReview: false
-    });
+    const action2 = {
+      type: c.TOGGLE_NEW
+    }
+    dispatch(action2);
   }
 
   handleSelectReview = (id) => {
@@ -142,7 +140,7 @@ class ReviewControl extends React.Component {
       buttonText = 'back'
       handleButton = this.handleReturnToList
 
-    } else if (this.state.visibleNewReview) {
+    } else if (this.props.visibleNewReview) {
       // NAVIGATES AWAY FROM THE 'NEW REVIEW' SCREEN
       currentlyVisible = <NewReview 
         onNewReview={this.handleNewReview} />
@@ -168,11 +166,13 @@ class ReviewControl extends React.Component {
 }
 
 ReviewControl.propTypes = {
-  tempReviewList: PropTypes.object
+  tempReviewList: PropTypes.object,
+  visibleNewReview: PropTypes.bool
 };
 const mapStateToProps = state => {
   return {
-    tempReviewList: state
+    tempReviewList: state.tempReviewList,
+    visibleNewReview: state.visibleNewReview
   }
 }
 ReviewControl = connect(mapStateToProps)(ReviewControl);
