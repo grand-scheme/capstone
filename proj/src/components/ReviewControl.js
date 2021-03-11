@@ -6,6 +6,7 @@ import ReviewEdit from './ReviewEdit';
 import { connect } from 'react-redux';
 import * as a from '../actions/';
 import PropTypes from 'prop-types';
+import { withFirestore } from 'react-redux-firebase'
 
 class ReviewControl extends React.Component {
   constructor(props){
@@ -38,23 +39,30 @@ class ReviewControl extends React.Component {
   }
 
   handleSelectReview = (id) => {
-    const selectedReview = this.props.tempReviewList[id];
-    this.setState({selectedReview: selectedReview});
+    this.props.firestore.get({collection: 'reviews', doc: id}).then((review) => {
+      const firestoreReview = {
+        restaurantName: review.get("restaurantName"),
+        address: review.get("address"),
+        location: review.get("location"),
+        rating: review.get("rating"),
+        date: review.get("date"),
+        review: review.get("review"),
+        id: review.id
+      }
+      this.setState({selectedReview: firestoreReview});
+    });
   }
 
   handleEditReview = () => {
     this.setState({visibleEditReview: true});
   }
 
-  // handleEditConfirmation = (editReview) => {
-  //   const { dispatch } = this.props;
-  //   const action = a.addReview(editReview);
-  //   dispatch(action);
-  //   this.setState({
-  //     visibleEditReview: false,
-  //     selectedReview: null
-  //   });
-  // }
+  handleEditConfirmation = () => {
+    this.setState({
+      visibleEditReview: false,
+      selectedReview: null
+    });
+  }
 
   handleDeleteReview = (id) => {
     const { dispatch } = this.props; 
@@ -119,4 +127,4 @@ const mapStateToProps = state => {
   }
 }
 ReviewControl = connect(mapStateToProps)(ReviewControl);
-export default ReviewControl;
+export default withFirestore(ReviewControl);

@@ -1,21 +1,23 @@
 import React from 'react';
 import Form from './Form';
 import PropTypes from 'prop-types';
+import { useFirestore } from 'react-redux-firebase';
 
 function ReviewEdit(props){
+  const firestore = useFirestore();
   const { review } = props;
   function handleEditConfirmation(e){
     e.preventDefault();
-    props.onEditReview({
-      id: review.id,
+    props.onEditReview();
+    const updatedProperties = {
       restaurantName: e.target.restaurantName.value,
       address: e.target.address.value,
       location: e.target.location.value,
       rating: e.target.rating.value,
       date: e.target.date.value,
       review: e.target.review.value
-    });
-    console.log(e.target.rating.value);
+    }
+    return firestore.update({collection: 'reviews', doc: review.id }, updatedProperties)
   }
 
   return (
