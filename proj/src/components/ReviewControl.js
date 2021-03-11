@@ -71,7 +71,6 @@ class ReviewControl extends React.Component {
     // NOTE: LET STATEMENTS
     let currentlyVisible = null;
     let buttonText = '';
-    let handleButton = null;
 
     // NOTE: IF CONDITIONALS
     if (this.state.visibleEditReview) {
