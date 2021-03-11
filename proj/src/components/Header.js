@@ -1,12 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import firebase from 'firebase/app';
+
 
 function Header(){
+  let history = useHistory();
+  function signout(e){
+    firebase.auth()
+      .signOut()
+      .then(function() {
+        history.push('/');
+      })
+      .catch(function(error) {
+        alert(error.message);
+      });
+  }
   return(
     <>
-      hello. <br />
-      <Link to="/">"/"</Link> <br />
-      <Link to="/signin">"/Sign In"</Link> <br />
+      <Link to='/'>Home</Link> --
+      <Link to='/signin'>Sign In</Link> -- 
+      <Link onClick={signout}>Log out</Link>
     </>
   );
 }
