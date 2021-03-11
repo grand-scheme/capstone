@@ -7,12 +7,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <Header />
+      <Header /><br />
       <Switch>
         <Route path='/signin'>
+          <br />
           <SignIn />
         </Route>
         <Route path='/'>
+          <br />
           <ReviewControl />
         </Route>
       </Switch>

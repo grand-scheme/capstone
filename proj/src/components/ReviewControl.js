@@ -123,8 +123,8 @@ class ReviewControl extends React.Component {
       }
       return(
         <>
-          {currentlyVisible}
           <button onClick={this.handleClick}>{buttonText}</button>
+          {currentlyVisible}
         </>
       );
     }

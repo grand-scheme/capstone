@@ -7,7 +7,7 @@ import { useFirestoreConnect, isLoaded, /* isEmpty */ } from 'react-redux-fireba
 function ReviewList(props){
   useFirestoreConnect([
     { collection: 'reviews',
-      orderBy: 'restaurantName',
+      orderBy: ['date', 'desc']
     }
   ]);
   const reviews = useSelector(state => state.firestore.ordered.reviews);
@@ -18,7 +18,7 @@ function ReviewList(props){
           return <Review 
             whenClicked = { props.onSelectReview }
             restaurantName={review.restaurantName}
-            address={review.address}
+            // address={review.address}
             location={review.location}
             rating={review.rating}
             date={review.date}

@@ -11,11 +11,11 @@ function Form(props){
           placeholder={props.restaurantName}
         />
         <br />
-        <input 
+        {/* <input 
           type='text'
           name='address'
           placeholder={props.address}
-        />
+        /> */}
         <br />
         <input 
           type='text'
@@ -30,7 +30,7 @@ function Form(props){
         />
         <br />
         <input 
-          type='text'
+          type='date'
           name='date'
           placeholder={props.date}
         />

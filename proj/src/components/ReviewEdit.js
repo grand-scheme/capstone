@@ -11,7 +11,7 @@ function ReviewEdit(props){
     props.onEditReview();
     const updatedProperties = {
       restaurantName: e.target.restaurantName.value,
-      address: e.target.address.value,
+      // address: e.target.address.value,
       location: e.target.location.value,
       rating: e.target.rating.value,
       date: e.target.date.value,
@@ -26,7 +26,7 @@ function ReviewEdit(props){
         buttonText='Edit Review'
         formHandler={handleEditConfirmation}
         restaurantName={review.restaurantName}
-        address={review.address}
+        // address={review.address}
         location={review.location}
         rating={review.rating}
         date={review.date}

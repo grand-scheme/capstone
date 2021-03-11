@@ -11,7 +11,7 @@ function NewReview(props){
     return firestore.collection('reviews').add(
       {
         restaurantName: e.target.restaurantName.value,
-        address: e.target.address.value,
+        // address: e.target.address.value,
         location: e.target.location.value,
         rating: e.target.rating.value,
         date: e.target.date.value,

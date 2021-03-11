@@ -8,12 +8,9 @@ function Review(props){
     <div onClick = {() => props.whenClicked(props.id)}>
       {/* NOTE: UNDEFINED WHEN PROP */}
       <p>
-        {props.restaurantName} <br />
-        {props.address} <br />
-        {props.location} <br />
-        {props.rating} <br />
-        {props.date} <br />
-        {props.review} <br />
+        <h1>{props.restaurantName} </h1>
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;{props.rating} &mdash; {props.date} </h2>
+        <hr />
       </p>
     </div>
   </>

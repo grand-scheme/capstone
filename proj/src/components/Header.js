@@ -20,6 +20,9 @@ function Header(){
       <Link to='/'>Home</Link> --
       <Link to='/signin'>Sign In</Link> -- 
       <Link onClick={signout}>Log out</Link>
+      <br />
+      <br />
+      <br />
     </>
   );
 }

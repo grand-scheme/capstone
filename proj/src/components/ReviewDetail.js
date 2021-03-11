@@ -6,13 +6,15 @@ function ReviewDetail(props){
 
   return(
     <>
-      {review.restaurantName} <br />
-      {review.address} <br />
-      {review.location} <br />
-      {review.rating} <br />
-      {review.date} <br />
-      {review.review} <br />
-      <button onClick={()=> onEditReview(review.id)}>Edit</button>
+      <h1>{review.restaurantName} </h1>
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;{review.rating} &mdash; {review.date} </h2>
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{review.location}</h2>
+      {/* {review.address} <br /> */}
+      &nbsp;&nbsp;&nbsp;&nbsp;{review.review} <br />
+      <br />
+      <br />
+      <br />
+      &nbsp;&nbsp;&nbsp;<button onClick={()=> onEditReview(review.id)}>Edit</button>
       <button onClick={()=> onDeleteReview(review.id)}>Delete</button>
     </>
   );
