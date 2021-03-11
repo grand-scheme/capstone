@@ -9,14 +9,9 @@ describe('rootReducer', () => {
   
   test('should return default state if no action happens', () => {
     expect(rootReducer({}, {type: null})).toEqual({
-      tempReviewList: {},
       visibleNewReview: false
     });
   }); 
-  //
-  test('check that initial state of reviewListReducer matches rootReducer', () => {
-    expect(store.getState().tempReviewList).toEqual(reviewListReducer(undefined, {type:null}));
-  });
   //
   test('check that initial state of visibleNewReviewReducer matches rootReducer', () => {
     expect(store.getState().visibleNewReview).toEqual(visibleNewReviewReducer(undefined, {type:null}));

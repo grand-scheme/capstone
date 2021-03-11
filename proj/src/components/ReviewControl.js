@@ -65,9 +65,7 @@ class ReviewControl extends React.Component {
   }
 
   handleDeleteReview = (id) => {
-    const { dispatch } = this.props; 
-    const action = a.deleteReview(id);
-    dispatch(action)
+    this.props.firestore.delete({collection: 'reviews', doc: id})
     this.setState({
       selectedReview: null
     });
@@ -102,7 +100,6 @@ class ReviewControl extends React.Component {
     } else {
       // NAVIGATES TO THE 'NEW REVIEW' SCREEN
       currentlyVisible = <ReviewList 
-        reviewList={this.props.tempReviewList} 
         onSelectReview={this.handleSelectReview}
       />
       buttonText = 'new review button'
@@ -117,12 +114,10 @@ class ReviewControl extends React.Component {
 }
 
 ReviewControl.propTypes = {
-  tempReviewList: PropTypes.object,
   visibleNewReview: PropTypes.bool
 };
 const mapStateToProps = state => {
   return {
-    tempReviewList: state.tempReviewList,
     visibleNewReview: state.visibleNewReview
   }
 }
