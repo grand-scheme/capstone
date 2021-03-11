@@ -31,24 +31,9 @@ class ReviewControl extends React.Component {
     }
   }
 
-  handleReturnToList = () => {
-    this.setState({
-      selectedReview: null,
-    });
-  }
-
   handleNewReview = (newReview) => {
     const { dispatch } = this.props; 
-    const {
-      restaurantName,
-      address,
-      location,
-      rating,
-      date,
-      review,
-      id,
-    } = newReview;
-    const action = addReview();
+    const action = a.addReview(newReview);
     dispatch(action);
     const action2 = a.toggleNew();
     dispatch(action2);
@@ -64,17 +49,8 @@ class ReviewControl extends React.Component {
   }
 
   handleEditConfirmation = (editReview) => {
-    const { dispatch } = this.props; 
-    const {
-      restaurantName,
-      address,
-      location,
-      rating,
-      date,
-      review,
-      id,
-    } = editReview;
-    const action = addReview();
+    const { dispatch } = this.props;
+    const action = a.addReview(editReview);
     dispatch(action);
     this.setState({
       visibleEditReview: false,
@@ -104,7 +80,6 @@ class ReviewControl extends React.Component {
         onEditReview = {this.handleEditConfirmation}
         />
       buttonText = 'Back'
-      handleButton = this.handleReturnToList
     } else if (this.state.selectedReview != null) {
       // SELECTS A 'REVIEW' TO GO TO DETAILS SCREEN
       currentlyVisible = <ReviewDetail 
@@ -113,15 +88,12 @@ class ReviewControl extends React.Component {
         onEditReview = {this.handleEditReview}
       />
       buttonText = 'back'
-      handleButton = this.handleReturnToList
 
     } else if (this.props.visibleNewReview) {
       // NAVIGATES AWAY FROM THE 'NEW REVIEW' SCREEN
       currentlyVisible = <NewReview 
         onNewReview={this.handleNewReview} />
       buttonText = 'cancel'
-      handleButton = this.handleClick
-
     } else {
       // NAVIGATES TO THE 'NEW REVIEW' SCREEN
       currentlyVisible = <ReviewList 
@@ -129,12 +101,11 @@ class ReviewControl extends React.Component {
         onSelectReview={this.handleSelectReview}
       />
       buttonText = 'new review button'
-      handleButton = this.handleClick
     }
     return(
       <>
         {currentlyVisible}
-        <button onClick={handleButton}>{buttonText}</button>
+        <button onClick={this.handleClick}>{buttonText}</button>
       </>
     );
   }
