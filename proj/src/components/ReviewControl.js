@@ -1,9 +1,13 @@
 import React from 'react';
 import NewReview from './NewReview';
 import ReviewList from './ReviewList';
-import tempReviewList from '../data/temp-review-list'
+// import tempReviewList from '../data/temp-review-list'
 import ReviewDetail from './ReviewDetail';
 import ReviewEdit from './ReviewEdit';
+import { connect } from 'react-redux';
+import Review from './Review';
+import * as c from '../actions/ActionTypes';
+import PropTypes from 'prop-types';
 
 class ReviewControl extends React.Component {
   constructor(props){
@@ -11,7 +15,6 @@ class ReviewControl extends React.Component {
     this.state = {
       // NOTE: TOGGLE FLAGS
       visibleNewReview: false,
-      tempReviewList: tempReviewList,
       selectedReview: null,
       visibleEditReview: false
     };
@@ -40,15 +43,34 @@ class ReviewControl extends React.Component {
   }
 
   handleNewReview = (newReview) => {
-    const newTempReviewList = this.state.tempReviewList.concat(newReview);
+    const { dispatch } = this.props; 
+    const {
+      restaurantName,
+      address,
+      location,
+      rating,
+      date,
+      review,
+      id,
+    } = newReview;
+    const action = {
+      type: c.ADD_REVIEW,
+      restaurantName,
+      address,
+      location,
+      rating,
+      date,
+      review,
+      id,
+    }
+    dispatch(action);
     this.setState({
-      tempReviewList: newTempReviewList, 
       visibleNewReview: false
     });
   }
 
   handleSelectReview = (id) => {
-    const selectedReview = this.state.tempReviewList.filter(review => review.id === id)[0];
+    const selectedReview = this.props.tempReviewList[id];
     this.setState({selectedReview: selectedReview});
   }
 
@@ -56,21 +78,42 @@ class ReviewControl extends React.Component {
     this.setState({visibleEditReview: true});
   }
 
-  handleEditConfirmation = (review) => {
-    const newTempReviewList = this.state.tempReviewList.filter(
-      review => review.id !== this.state.selectedReview.id)
-      .concat(review);
+  handleEditConfirmation = (editReview) => {
+    const { dispatch } = this.props; 
+    const {
+      restaurantName,
+      address,
+      location,
+      rating,
+      date,
+      review,
+      id,
+    } = editReview;
+    const action = {
+      type: c.ADD_REVIEW,
+      restaurantName,
+      address,
+      location,
+      rating,
+      date,
+      review,
+      id,
+    }
+    dispatch(action);
     this.setState({
-      tempReviewList: newTempReviewList,
       visibleEditReview: false,
       selectedReview: null
     });
   }
 
   handleDeleteReview = (id) => {
-    const newTempReviewList = this.state.tempReviewList.filter(review => review.id !== id);
+    const { dispatch } = this.props; 
+    const action = {
+      type: c.DELETE_REVIEW,
+      id
+    }
+    dispatch(action)
     this.setState({
-      tempReviewList: newTempReviewList,
       selectedReview: null
     });
   }
@@ -109,7 +152,7 @@ class ReviewControl extends React.Component {
     } else {
       // NAVIGATES TO THE 'NEW REVIEW' SCREEN
       currentlyVisible = <ReviewList 
-        reviewList={this.state.tempReviewList} 
+        reviewList={this.props.tempReviewList} 
         onSelectReview={this.handleSelectReview}
       />
       buttonText = 'new review button'
@@ -124,4 +167,13 @@ class ReviewControl extends React.Component {
   }
 }
 
+ReviewControl.propTypes = {
+  tempReviewList: PropTypes.object
+};
+const mapStateToProps = state => {
+  return {
+    tempReviewList: state
+  }
+}
+ReviewControl = connect(mapStateToProps)(ReviewControl);
 export default ReviewControl;

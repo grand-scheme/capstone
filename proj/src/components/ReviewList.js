@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function ReviewList(props){
   return (
     <>
-      {props.reviewList.map((review) =>
+      {Object.values(props.reviewList).map((review) =>
         <Review 
           whenClicked = { props.onSelectReview }
           restaurantName={review.restaurantName}
@@ -23,7 +23,7 @@ function ReviewList(props){
 }
 
 ReviewList.propTypes = {
-  reviewList: PropTypes.array,
+  reviewList: PropTypes.object,
   onSelectReview: PropTypes.func
 };
 export default ReviewList;
