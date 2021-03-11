@@ -4,14 +4,25 @@ import App from './components/App';
 import {createStore} from 'redux';
 import rootReducer from './reducers';
 import {Provider} from 'react-redux';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { createFirestoreInstance } from 'redux-firestore';
+import firebase from "./firebase";
 
 const store = createStore(rootReducer);
+const rrfProps = {
+  firebase,
+  config: {
+        userProfile: "users"
+    },
+  dispatch: store.dispatch,
+  createFirestoreInstance
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ReactReduxFirebaseProvider {...rrfProps}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </ReactReduxFirebaseProvider>
+  </Provider>,
   document.getElementById('root')
 );
