@@ -1,5 +1,5 @@
 import * as c from '../actions/ActionTypes'
-export default (state = false, action) => {
+const visibleNewReviewReducer = (state = false, action) => {
   switch(action.type) {
     case c.TOGGLE_NEW:
       return !state;
@@ -7,3 +7,5 @@ export default (state = false, action) => {
       return state;
   }
 };
+
+export default visibleNewReviewReducer;

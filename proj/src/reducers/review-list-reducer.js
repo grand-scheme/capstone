@@ -1,6 +1,6 @@
 import * as c from '../actions/ActionTypes';
 
-export default (state={}, action) => {
+const reviewListReducer = (state={}, action) => {
   const {
     restaurantName,
     address,
@@ -31,3 +31,5 @@ export default (state={}, action) => {
     return state;
   }
 };
+
+export default reviewListReducer;
