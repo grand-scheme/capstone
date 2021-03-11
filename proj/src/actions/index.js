@@ -1,23 +1,10 @@
 import * as c from './ActionTypes';
 
-export const addReview = (review) => {
-  const {
-    restaurantName,
-    address,
-    location,
-    rating,
-    date,
-    review,
-    id
-  } = review;
-  return {
-    type: c.ADD_REVIEW,
-    restaurantName,
-    address,
-    location,
-    rating,
-    date,
-    review,
-    id,
-  }
-}
+export const deleteReview = id => ({
+  type: c.DELETE_REVIEW,
+  id
+});
+
+export const toggleNew = () => ({
+  type: c.TOGGLE_NEW
+});

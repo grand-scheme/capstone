@@ -1,28 +1,10 @@
 import * as c from '../actions/ActionTypes';
 
-export default (state={}, action) => {
+const reviewListReducer = (state={}, action) => {
   const {
-    restaurantName,
-    address,
-    location,
-    rating,
-    date,
-    review,
     id,
   } = action;
   switch (action.type) {
-    case c.ADD_REVIEW:
-      return Object.assign({}, state, {
-        [id]: {
-          restaurantName,
-          address,
-          location,
-          rating,
-          date,
-          review,
-          id,
-        }
-      });
     case c.DELETE_REVIEW:
       let newState = {...state};
       delete newState[id];
@@ -31,3 +13,5 @@ export default (state={}, action) => {
     return state;
   }
 };
+
+export default reviewListReducer;
