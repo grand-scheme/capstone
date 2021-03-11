@@ -37,39 +37,6 @@ describe('reviewListReducer', () => {
     expect(reviewListReducer({}, { type: null} )).toEqual({});
   });
   // 
-  test('should add review to list', () => {
-    const { 
-      restaurantName,
-      address,
-      location,
-      rating,
-      date,
-      review,
-      id
-    } = testData;
-    action = {
-      type: c.ADD_REVIEW,
-      restaurantName,
-      address,
-      location,
-      rating,
-      date,
-      review,
-      id,
-    };
-    expect(reviewListReducer({}, action)).toEqual({
-      [id] : {
-        restaurantName,
-        address,
-        location,
-        rating,
-        date,
-        review,
-        id,
-      }
-    });
-  });
-  //
   test('should remove review from list', () => {
     action = {
       type: c.DELETE_REVIEW,

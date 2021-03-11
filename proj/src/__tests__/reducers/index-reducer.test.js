@@ -22,21 +22,6 @@ describe('rootReducer', () => {
     expect(store.getState().visibleNewReview).toEqual(visibleNewReviewReducer(undefined, {type:null}));
   });
   //
-  test('check that c.ADD_REVIEW works for reviewListReducer matches rootReducer', () => {
-    const action = {
-      type: c.ADD_REVIEW,
-      restaurantName: "Bernie's",
-      address: '210 21st Ave',
-      location: 'Seattle, WA',
-      rating: '🙁',
-      date: '3/2/2021',
-      review: "Not great.",
-      id:'20'
-    }
-    store.dispatch(action)
-    expect(store.getState().tempReviewList).toEqual(reviewListReducer(undefined, action));
-  });
-  //
   test('check that c.TOGGLE_NEW works for visibleNewReviewReducer and rootReducer', () => {
     const action = {
       type: c.TOGGLE_NEW
