@@ -31,12 +31,10 @@ class ReviewControl extends React.Component {
     }
   }
 
-  handleNewReview = (newReview) => {
+  handleNewReview = () => {
     const { dispatch } = this.props; 
-    const action = a.addReview(newReview);
+    const action = a.toggleNew();
     dispatch(action);
-    const action2 = a.toggleNew();
-    dispatch(action2);
   }
 
   handleSelectReview = (id) => {
@@ -48,15 +46,15 @@ class ReviewControl extends React.Component {
     this.setState({visibleEditReview: true});
   }
 
-  handleEditConfirmation = (editReview) => {
-    const { dispatch } = this.props;
-    const action = a.addReview(editReview);
-    dispatch(action);
-    this.setState({
-      visibleEditReview: false,
-      selectedReview: null
-    });
-  }
+  // handleEditConfirmation = (editReview) => {
+  //   const { dispatch } = this.props;
+  //   const action = a.addReview(editReview);
+  //   dispatch(action);
+  //   this.setState({
+  //     visibleEditReview: false,
+  //     selectedReview: null
+  //   });
+  // }
 
   handleDeleteReview = (id) => {
     const { dispatch } = this.props; 
