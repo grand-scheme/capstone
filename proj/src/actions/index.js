@@ -1,6 +1,6 @@
 import * as c from './ActionTypes';
 
-export const addReview = (review) => {
+export const addReview = (addedReview) => {
   const {
     restaurantName,
     address,
@@ -9,7 +9,7 @@ export const addReview = (review) => {
     date,
     review,
     id
-  } = review;
+  } = addedReview;
   return {
     type: c.ADD_REVIEW,
     restaurantName,
@@ -21,3 +21,8 @@ export const addReview = (review) => {
     id,
   }
 }
+
+export const deleteReview = id => ({
+  type: c.DELETE_REVIEW,
+  id
+});
