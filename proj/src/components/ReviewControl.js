@@ -84,7 +84,7 @@ class ReviewControl extends React.Component {
     if ((isLoaded(auth)) && (auth.currentUser == null)) {
       return (
         <>
-          Please Log In or Register
+          Please Sign In or Register
         </>
       )
     }

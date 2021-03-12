@@ -9,6 +9,7 @@ function Header(){
     firebase.auth()
       .signOut()
       .then(function() {
+        history.push('/signin');
         history.push('/');
       })
       .catch(function(error) {

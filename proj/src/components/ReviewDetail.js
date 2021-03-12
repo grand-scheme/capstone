@@ -10,7 +10,7 @@ function ReviewDetail(props){
       <h2>&nbsp;&nbsp;&nbsp;&nbsp;{review.rating} &mdash; {review.date} </h2>
       <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{review.location}</h2>
       {/* {review.address} <br /> */}
-      &nbsp;&nbsp;&nbsp;&nbsp;{review.review} <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;<h2>{review.review}</h2> <br />
       <br />
       <br />
       <br />
